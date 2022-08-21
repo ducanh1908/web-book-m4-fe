@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Log In | UBold - Responsive Admin Dashboard Template</title>
+        <title>Log In | Books</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -34,9 +34,9 @@
                         <div class="auth-brand text-center text-lg-left">
                             <div class="auth-logo">
                                 <a href="index.html" class="logo logo-dark text-center">
-                                    <span class="logo-lg">
-                                        <img src="../assets/images/logo-dark.png" alt="" height="22">
-                                    </span>
+                                    <a class="navbar-brand" href="index.html">
+                                        <i class="fas fa-book-reader fa-2x mx-3"></i>Books      
+                                    </a>
                                 </a>
             
                                 <a href="index.html" class="logo logo-light text-center">
@@ -117,7 +117,7 @@
                     <p class="lead"><i class="mdi mdi-format-quote-open"></i> I've been using your theme from the previous developer for our web app, once I knew new version is out, I immediately bought with no hesitation. Great themes, good documentation with lots of customization available and sample app that really fit our need. <i class="mdi mdi-format-quote-close"></i>
                     </p>
                     <h5 class="text-white">
-                        - Fadlisaad (Ubold Admin User)
+                        - Fadlisaad ( Admin)
                     </h5>
                 </div> <!-- end auth-user-testimonial-->
             </div>
@@ -154,12 +154,13 @@
                         }
                         else {
                          
-                            location.href =  'ecommerce-order-detail.html';
+                            location.href ='/User/index.html';
                         }
                         localStorage.setItem('accessToken', JSON.stringify(data));
                     }
                 })
             }
-        </script>  
+        </script>
+        
     </body>
 </html>
