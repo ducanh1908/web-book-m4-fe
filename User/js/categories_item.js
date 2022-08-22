@@ -60,7 +60,7 @@ function showListBookToGerne(id) {
                         <div class="product_price">$${book.price}</div>
                     </div>
                 </div>
-                <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                <div class="red_button add_to_cart_button"><a href="#" >add to cart</a></div>
             </div>
             </div>`
                 }
@@ -139,7 +139,7 @@ function fetchData() {
                         <div class="product_price">$${data.price}</div>
                     </div>
                 </div>
-                <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                <div class="red_button add_to_cart_button"><a href="#" onclick="addToCart('${data._id}')">add to cart</a></div>
             </div>
             </div>`
     })
