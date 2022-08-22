@@ -9,8 +9,51 @@ search = '';
 
     $(document).ready(function() {
         getBookList();
+        getListGerne();
         })
         
+
+
+    function getListGerne(){
+            let html ='';
+            $.ajax({
+                type :'GET',
+                headers: {
+                    // 
+                    'Content-Type':'application/json'
+                },
+                url:`${API_URL}/gernes`,
+                success : function(data) {
+                    for(let i = 0; i < data.length; i++) {
+                        html +=`
+                        <li>
+                        <a href="#" id="${data[i]._id}" onclick ="showListBookToGerne('${data[i]._id}')">${data[i].name}</a>
+                        </li>`
+                    }
+                    $('#list-gerne').append(html);
+                }
+            })
+        }
+
+function showListBookToGerne(id) {
+    $.ajax({
+        type :'GET',
+        // headers: {
+        //     'Authorization':'Bearer ' + token.token
+        // },
+        url:`${API_URL}/books`,
+        success : function(data) {
+            for(let i = 0; i < data.length; i++){
+                if(data[i].gerne._id ==id) {
+                    console.log(`${data[i]}`);
+                    
+                    getBookList();
+                }
+            }
+        }
+    })
+}
+
 
 const Story = document.querySelector('#product-item');
 
