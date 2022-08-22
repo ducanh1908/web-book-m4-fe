@@ -158,7 +158,7 @@ function createAuthor() {
       
       // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
-        console.log(firebase);
+       
         const ref = firebase.storage().ref();
         const file = document.querySelector("#image").files[0];
         const nameImage = +new Date() + "-" + file.name;

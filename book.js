@@ -149,14 +149,14 @@ function deleteBook(id){
     })
 }
 function resetForm() {
-    let name = $('#name').val();
-    let price = $('#price').val();
-    let authorId = $('#authorList').val();
-    let reprint = $('#reprint').val();
-    let publisherId = $('#publisherList').val();
-    let description = $('#description').val();
-    let gerneId = $('#gerneList').val()
-    let image = $('#image').val()
+    $('#name').val('');
+    $('#price').val('');
+    $('#authorList').val('');
+    $('#reprint').val('');
+    $('#publisherList').val('');
+    $('#description').val('');
+    $('#gerneList').val('')
+    $('#image').val('')
 }
 
 function createBook() {
@@ -202,7 +202,7 @@ function createBook() {
                 publisher:publisherId,
                 gerne:gerneId
             };
-            console.log(book)
+            
             $.ajax({
                 type: 'POST',
                 url:`${API_URL}/books`,
@@ -212,8 +212,8 @@ function createBook() {
                 },
                 data: JSON.stringify(book),
                 success: function(data) {
-                    console.log(data)
-fetchData()
+                    resetForm();
+                    fetchData();
                 }
             })
         })
@@ -233,7 +233,7 @@ function drawGerneSelectOption() {
     $.ajax({
         type: 'GET', url: `${API_URL}/gernes`, success: function (data)
         {
-            console.log(data)
+           
             let html = '<option>Select gerne</option>' ;
             for (let gerne of data) {
                 html += `<option value="${gerne._id}">${gerne.name}</option>`
@@ -252,7 +252,7 @@ function drawGerneSelectOption() {
                 html += `<option value="${publishers._id}">${publishers.name}</option>`
             }
             $('#publisherList').html(html);
-            console.log(html)
+           
         }
 
     })
@@ -261,7 +261,7 @@ function drawAuthorSelectOption() {
     $.ajax({
         type: 'GET', url: `${API_URL}/authors`, success: function (data)
         {
-            console.log(data)
+          
             let html = '<option>Select Author</option>' ;
             for (let author of data) {
                 html += `<option value="${author._id}">${author.name}</option>`
