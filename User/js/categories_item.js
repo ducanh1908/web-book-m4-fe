@@ -3,7 +3,7 @@ let token = JSON.parse(localStorage.getItem('accessToken'));
 let totalBook = 0;
 let datas;
 let page = 1,
-records = 5,
+records = 10,
 totalCount = 0,
 search = '';
 
