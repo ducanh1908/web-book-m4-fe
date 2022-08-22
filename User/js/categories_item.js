@@ -8,8 +8,8 @@ totalCount = 0,
 search = '';
 
     $(document).ready(function() {
-        getBookList();
         getListGerne();
+        getBookList();
         })
         
 
@@ -43,13 +43,28 @@ function showListBookToGerne(id) {
         // },
         url:`${API_URL}/books`,
         success : function(data) {
-            for(let i = 0; i < data.length; i++){
-                if(data[i].gerne._id ==id) {
-                    console.log(`${data[i]}`);
-                    
-                    getBookList();
+            let html = '';
+            data.filter(book =>{
+                if(book.gerne._id == id) {
+                    console.log(book);
+                   html += `
+                   <div class="col-md-6 col-xl-3" id="${book._id}">
+            <div class="product-item" style="width:100%">
+                <div class="product product_filter">
+                    <div class="product_image">
+                        <img src="${book.image}" alt="">
+                    </div>
+                    <div class="favorite"></div>
+                    <div class="product_info">
+                        <h6 class="product_name"><a href="single.html">${book.name}</a></h6>
+                        <div class="product_price">$${book.price}</div>
+                    </div>
+                </div>
+                <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+            </div>
+            </div>`
                 }
-            }
+            })
         }
     })
 }
