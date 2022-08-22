@@ -13,7 +13,6 @@ if (!token) {
 } else {
     $(document).ready(function() {
         getAuthorList();
-        getQuantity();
         })
         
 }
@@ -31,7 +30,7 @@ function  getAuthorList() {
             totalAuthor = data.length;
                     
                     // Run on page load
-                    fetchData(records);
+                    fetchData();
 
                     $(document).on('click', '.page-item-numbers a', function() {
                         page = parseInt($(this)[0].text);
@@ -43,7 +42,7 @@ function  getAuthorList() {
                         if (page > 1) {
                         page--;
                         }
-                        fetchData(records);
+                        fetchData();
                     });
 
                     // Next page 
@@ -51,7 +50,7 @@ function  getAuthorList() {
                         if (page * records < totalCount) {
                         page++;
                         }
-                        fetchData(records);
+                        fetchData();
                     });
                     // data fetching from API
 
