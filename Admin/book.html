@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Calendar | UBold - Responsive Admin Dashboard Template</title>
+        <title>Customers | UBold - Responsive Admin Dashboard Template</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -10,22 +10,33 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="../assets/images/favicon.ico">
 
-        <!-- Plugin css -->
-        <link href="../assets/libs/@fullcalendar/core/main.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/libs/@fullcalendar/daygrid/main.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/libs/@fullcalendar/bootstrap/main.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/libs/@fullcalendar/timegrid/main.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/libs/@fullcalendar/list/main.min.css" rel="stylesheet" type="text/css" />
+        <!-- third party css -->
+        <link href="../assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <!-- third party css end -->
+        
+	    <!-- App css -->
+	    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
+	    <link href="../assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
 
-        <!-- App css -->
-        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
-        <link href="../assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
+	    <link href="../assets/css/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" disabled />
+	    <link href="../assets/css/app-dark.min.css" rel="stylesheet" type="text/css" id="app-dark-stylesheet"  disabled />
 
-        <link href="../assets/css/bootstrap-dark.min.css" rel="stylesheet" type="text/css" id="bs-dark-stylesheet" disabled />
-        <link href="../assets/css/app-dark.min.css" rel="stylesheet" type="text/css" id="app-dark-stylesheet"  disabled />
-
-        <!-- icons -->
-        <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+	    <!-- icons -->
+	    <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <!-- link script sweetalert -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!-- link css bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        <!-- link script bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+                crossorigin="anonymous"></script>
+        <!-- link script ajax jquery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+                integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     </head>
 
@@ -369,9 +380,10 @@
                     <div class="clearfix"></div>
                 </div>
             </div>
-            <!-- end Topbar -->
-
+           <!-- end Topbar -->
             <!-- ========== Left Sidebar Start ========== -->
+      
+            <!-- Left Sidebar End -->
             <div class="left-side-menu">
 
                 <div class="h-100" data-simplebar>
@@ -456,6 +468,10 @@
 
                                             </a>
                                         </li>
+
+
+
+
                         </ul>
 
                     </div>
@@ -467,8 +483,6 @@
                 <!-- Sidebar -left -->
 
             </div>
-            <!-- Left Sidebar End -->
-
             <!-- ============================================================== -->
             <!-- Start Page Content here -->
             <!-- ============================================================== -->
@@ -478,7 +492,7 @@
 
                     <!-- Start Content-->
                     <div class="container-fluid">
-                        
+
                         <!-- start page title -->
                         <div class="row">
                             <div class="col-12">
@@ -486,124 +500,124 @@
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">UBold</a></li>
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Apps</a></li>
-                                            <li class="breadcrumb-item active">Calendar</li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Ecommerce</a></li>
+                                            <li class="breadcrumb-item active">Book</li>
                                         </ol>
                                     </div>
-                                    <h4 class="page-title">Calendar</h4>
+                                    <h4 class="page-title">List Books</h4>
                                 </div>
                             </div>
-                        </div>     
-                        <!-- end page title --> 
+                        </div>
+                        <!-- end page title -->
 
                         <div class="row">
                             <div class="col-12">
-
                                 <div class="card">
                                     <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-lg-3">
-                                                <button class="btn btn-lg font-16 btn-primary btn-block" id="btn-new-event"><i class="mdi mdi-plus-circle-outline"></i> Create New Event</button>
-                                                <div id="external-events" class="m-t-20">
-                                                    <br>
-                                                    <p class="text-muted">Drag and drop your event or click in the calendar</p>
-                                                    <div class="external-event bg-success" data-class="bg-success">
-                                                        <i class="mdi mdi-checkbox-blank-circle mr-2 vertical-middle"></i>New Theme Release
-                                                    </div>
-                                                    <div class="external-event bg-info" data-class="bg-info">
-                                                        <i class="mdi mdi-checkbox-blank-circle mr-2 vertical-middle"></i>My Event
-                                                    </div>
-                                                    <div class="external-event bg-warning" data-class="bg-warning">
-                                                        <i class="mdi mdi-checkbox-blank-circle mr-2 vertical-middle"></i>Meet manager
-                                                    </div>
-                                                    <div class="external-event bg-danger" data-class="bg-danger">
-                                                        <i class="mdi mdi-checkbox-blank-circle mr-2 vertical-middle"></i>Create New theme
+                                        <div class="row mb-2">
+                                            <div class="col-sm-4">
+                                                <button type="button" onclick="showCreateForm()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    Add Book
+                                                </button>
+                                            </div>
+                                            <div class="col-sm-8">
+
+                                            </div><!-- end col-->
+                                        </div>
+
+                                        <div class="table-responsive">
+                                            <table class="table" >
+                                                <thead>
+                                                <tr>
+                                                    <th>Image</th>
+                                                    <th>Name</th>
+                                                    <th>Author</th>
+                                                    <th>Reprint</th>
+                                                    <th>Price</th>
+                                                    <th>Gerne</th>
+                                                    <th>Publisher</th>
+                                                    <th>Description</th>
+                                                    <th style="width: 70px;">Action</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="books" >
+                                                </tbody>
+                                            </table>
+                                            <!-- show form modal -->
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-xl">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Book</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <div class="form-group">
+                                                                        <label for="image">Image</label>
+                                                                        <input type="file" class="form-control" id="image">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="name">Name</label>
+                                                                        <input type="text" class="form-control" id="name">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="authorList">Author</label>
+                                                                        <select id="authorList" class="form-control">
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="reprint">Reprint</label>
+                                                                        <input type="text" class="form-control" id="reprint">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="form-group">
+                                                                        <label for="price">Price</label>
+                                                                        <input type="text" class="form-control" id="price">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="gerneList">Gerne</label>
+                                                                        <select id="gerneList" class="form-control">
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="publisherList">Publisher</label>
+                                                                        <select id="publisherList" class="form-control">
+                                                                        </select>
+                                                                    </div>
+
+                                                                    <div class="form-group">
+                                                                        <label for="description">Description</label>
+                                                                        <textarea type="text" class="form-control" id="description"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary" onclick="createBook()">Save changes</button>
+                                                        </div>
                                                     </div>
                                                 </div>
-
-
-                                                <div class="mt-5 d-none d-xl-block">
-                                                    <h5 class="text-center">How It Works ?</h5>
-    
-                                                    <ul class="pl-3">
-                                                        <li class="text-muted mb-3">
-                                                            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                                                        </li>
-                                                        <li class="text-muted mb-3">
-                                                            Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage.
-                                                        </li>
-                                                        <li class="text-muted mb-3">
-                                                            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                                                        </li>
-                                                    </ul>
-                                                </div>
-    
-                                            </div> <!-- end col-->
-
-                                            <div class="col-lg-9">
-                                                <div id="calendar"></div>
-                                            </div> <!-- end col -->
-
-                                        </div>  <!-- end row -->
-                                    </div> <!-- end card body-->
-                                </div> <!-- end card -->
-
-                                <!-- Add New Event MODAL -->
-                                <div class="modal fade" id="event-modal" tabindex="-1">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header py-3 px-4 border-bottom-0 d-block">
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-hidden="true">&times;</button>
-                                                <h5 class="modal-title" id="modal-title">Event</h5>
                                             </div>
-                                            <div class="modal-body p-4">
-                                                <form class="needs-validation" name="event-form" id="form-event" novalidate>
-                                                    <div class="row">
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <label class="control-label">Event Name</label>
-                                                                <input class="form-control" placeholder="Insert Event Name"
-                                                                    type="text" name="title" id="event-title" required />
-                                                                <div class="invalid-feedback">Please provide a valid event name</div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <label class="control-label">Category</label>
-                                                                <select class="form-control custom-select" name="category"
-                                                                    id="event-category" required>
-                                                                    <option value="bg-danger" selected>Danger</option>
-                                                                    <option value="bg-success">Success</option>
-                                                                    <option value="bg-primary">Primary</option>
-                                                                    <option value="bg-info">Info</option>
-                                                                    <option value="bg-dark">Dark</option>
-                                                                    <option value="bg-warning">Warning</option>
-                                                                </select>
-                                                                <div class="invalid-feedback">Please select a valid event category</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mt-2">
-                                                        <div class="col-6">
-                                                            <button type="button" class="btn btn-danger" id="btn-delete-event">Delete</button>
-                                                        </div>
-                                                        <div class="col-6 text-right">
-                                                            <button type="button" class="btn btn-light mr-1" data-dismiss="modal">Close</button>
-                                                            <button type="submit" class="btn btn-success" id="btn-save-event">Save</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div> <!-- end modal-content-->
-                                    </div> <!-- end modal dialog-->
-                                </div>
-                                <!-- end modal-->
-                            </div>
-                            <!-- end col-12 -->
-                        </div> <!-- end row -->
-                        
+                                        </div>
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div> <!-- end col -->
+                        </div>
+                        <!-- end row -->
+
                     </div> <!-- container -->
+
+                </div> <!-- content -->
+
+
+            </div> <!-- container -->
 
                 </div> <!-- content -->
 
@@ -612,7 +626,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6">
-                                2015 - <script>document.write(new Date().getFullYear())</script> &copy; UBold theme by <a href="">Coderthemes</a> 
+                                2015 - <script>document.write(new Date().getFullYear())</script> &copy; UBold theme by <a href="">Coderthemes</a>
                             </div>
                             <div class="col-md-6">
                                 <div class="text-md-right footer-links d-none d-sm-block">
@@ -1038,20 +1052,22 @@
         <!-- Vendor js -->
         <script src="../assets/js/vendor.min.js"></script>
 
-        <!-- plugin js -->
-        <script src="../assets/libs/moment/min/moment.min.js"></script>
-        <script src="../assets/libs/@fullcalendar/core/main.min.js"></script>
-        <script src="../assets/libs/@fullcalendar/bootstrap/main.min.js"></script>
-        <script src="../assets/libs/@fullcalendar/daygrid/main.min.js"></script>
-        <script src="../assets/libs/@fullcalendar/timegrid/main.min.js"></script>
-        <script src="../assets/libs/@fullcalendar/list/main.min.js"></script>
-        <script src="../assets/libs/@fullcalendar/interaction/main.min.js"></script>
+        <!-- third party js -->
+        <script src="../assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="../assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+        <script src="../assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="../assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+        <script src="../assets/libs/jquery-datatables-checkboxes/js/dataTables.checkboxes.min.js"></script>
+        <!-- third party js ends -->
 
-        <!-- Calendar init -->
-        <script src="../assets/js/pages/calendar.init.js"></script>
+        <!-- Datatables init -->
+        <script src="../assets/js/pages/customers.init.js"></script>
 
         <!-- App js -->
         <script src="../assets/js/app.min.js"></script>
-        
+        <script src="../book.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-storage.js"></script>
+
     </body>
 </html>

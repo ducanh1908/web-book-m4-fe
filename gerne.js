@@ -4,75 +4,76 @@ let token = JSON.parse(localStorage.getItem('accessToken'));
 let totalAuthor = 0;
 let datas;
 let page = 1,
-records = 5,
-totalCount = 0,
-search = '';
+    records = 5,
+    totalCount = 0,
+    search = '';
 
 if (!token) {
     location.href = 'auth-login-2.html'
 } else {
     $(document).ready(function() {
         getAuthorList();
-        })
-        
+        getQuantity();
+    })
+
 }
 const Story = document.querySelector('#authors');
 
 function  getAuthorList() {
     $.ajax ({
         type :'GET',
-        // headers: {
-        //     'Authorization':'Bearer ' + token.token
-        // },
+        headers: {
+            'Authorization':'Bearer ' + token.token
+        },
         url:`${API_URL}/authors`,
         success : function(data) {
             datas = data;
             totalAuthor = data.length;
-                    
-                    // Run on page load
-                    fetchData();
 
-                    $(document).on('click', '.page-item-numbers a', function() {
-                        page = parseInt($(this)[0].text);
-                        fetchData();
-                    });
+            // Run on page load
+            fetchData(records);
 
-                    // Previous Page
-                    $('[aria-label="Previous"]').click(function() {
-                        if (page > 1) {
-                        page--;
-                        }
-                        fetchData();
-                    });
+            $(document).on('click', '.page-item-numbers a', function() {
+                page = parseInt($(this)[0].text);
+                fetchData();
+            });
 
-                    // Next page 
-                    $('[aria-label="Next"]').click(function() {
-                        if (page * records < totalCount) {
-                        page++;
-                        }
-                        fetchData();
-                    });
-                    // data fetching from API
+            // Previous Page
+            $('[aria-label="Previous"]').click(function() {
+                if (page > 1) {
+                    page--;
+                }
+                fetchData(records);
+            });
 
-       }
-        
+            // Next page
+            $('[aria-label="Next"]').click(function() {
+                if (page * records < totalCount) {
+                    page++;
+                }
+                fetchData(records);
+            });
+            // data fetching from API
+
+        }
+
     })
 }
 
 function renderPagination() {
-            $('.page-item-numbers').remove();
-            let pagesNumbers = Math.ceil(totalCount / records);
-            for (let i = 1; i <= pagesNumbers; i++) {
-            $(`.pagination > li:nth-child(${i})`).after(`<li class="page-item page-item-numbers ${i == page ? 'active': ''}" ><a class="page-link" href="#">${i}</a></li>`);
-            }
-        }
+    $('.page-item-numbers').remove();
+    let pagesNumbers = Math.ceil(totalCount / records);
+    for (let i = 1; i <= pagesNumbers; i++) {
+        $(`.pagination > li:nth-child(${i})`).after(`<li class="page-item page-item-numbers ${i == page ? 'active': ''}" ><a class="page-link" href="#">${i}</a></li>`);
+    }
+}
 
 function fetchData() {
     totalCount = totalAuthor;
     Story.innerHTML = '';
     datas.slice((page - 1) * records, page * records).map((data) => {
-    Story.innerHTML +=
-`
+        Story.innerHTML +=
+            `
     <tr id="${data._id}">
     
     <td class="table-user">
@@ -92,7 +93,7 @@ function fetchData() {
     renderPagination();
 }
 
-        
+
 
 
 
@@ -106,11 +107,11 @@ function showConfirmDelete(id){
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes, delete it!'
-      }).then((result) => {
+    }).then((result) => {
         if (result.isConfirmed) {
-         deleteAuthor(id);
+            deleteAuthor(id);
         }
-      })
+    })
 }
 
 function deleteAuthor(id){
@@ -137,7 +138,7 @@ function resetForm() {
     $('#nationality').val('');
     $('#linkWiki').val('');
     $('#image').val('');
-    
+
 }
 
 function createAuthor() {
@@ -154,19 +155,19 @@ function createAuthor() {
         messagingSenderId: "232240558056",
         appId: "1:232240558056:web:414ee09a0c3a80d3e53e5d",
         measurementId: "G-WWF2HKWXK1"
-      };
-      
-      // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-       
-        const ref = firebase.storage().ref();
-        const file = document.querySelector("#image").files[0];
-        const nameImage = +new Date() + "-" + file.name;
-        const metadata = {
-          contentType: file.type
-        };
-        const task = ref.child(nameImage).put(file, metadata);
-      task
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    console.log(firebase);
+    const ref = firebase.storage().ref();
+    const file = document.querySelector("#image").files[0];
+    const nameImage = +new Date() + "-" + file.name;
+    const metadata = {
+        contentType: file.type
+    };
+    const task = ref.child(nameImage).put(file, metadata);
+    task
         .then(snapshot => snapshot.ref.getDownloadURL())
         .then(url => {
             let author = {
@@ -177,18 +178,18 @@ function createAuthor() {
                 linkWiki: linkWiki,
                 image: url
             }
-          
-          $.ajax({
-            type: 'POST',
-            url:`${API_URL}/authors`,
-            headers: {
-                'Content-Type':'application/json',
-                'Authorization':'Bearer ' + token.token
-            },
-            data: JSON.stringify(author),
-            success: function(data) {
-                totalAuthor++;
-            let  html = `
+
+            $.ajax({
+                type: 'POST',
+                url:`${API_URL}/authors`,
+                headers: {
+                    'Content-Type':'application/json',
+                    'Authorization':'Bearer ' + token.token
+                },
+                data: JSON.stringify(author),
+                success: function(data) {
+                    totalAuthor++;
+                    let  html = `
             <tr id="${data._id}">
             <td class="table-user">
             <img src="${data.image}" alt="table-user" class="mr-2 rounded-circle">
@@ -203,12 +204,12 @@ function createAuthor() {
             <a onclick="showConfirmDelete('${data._id}')" class="action-icon"> <i class="mdi mdi-delete"></i> </a>
             </td>
             </tr>`
-                $('#authors').append(html);
-                resetForm();
-                getAuthorList();    
-            }
+                    $('#authors').append(html);
+                    resetForm();
+                    getAuthorList();
+                }
+            })
         })
-    })
         .catch(console.error);
 }
 function showFormCreate() {
@@ -257,18 +258,18 @@ function updateAuthor(id) {
         messagingSenderId: "232240558056",
         appId: "1:232240558056:web:414ee09a0c3a80d3e53e5d",
         measurementId: "G-WWF2HKWXK1"
-      };
-      // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        console.log(firebase);
-        const ref = firebase.storage().ref();
-        const file = document.querySelector("#image").files[0];
-        const nameImage = +new Date() + "-" + file.name;
-        const metadata = {
-          contentType: file.type
-        };
-        const task = ref.child(nameImage).put(file, metadata);
-      task
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    console.log(firebase);
+    const ref = firebase.storage().ref();
+    const file = document.querySelector("#image").files[0];
+    const nameImage = +new Date() + "-" + file.name;
+    const metadata = {
+        contentType: file.type
+    };
+    const task = ref.child(nameImage).put(file, metadata);
+    task
         .then(snapshot => snapshot.ref.getDownloadURL())
         .then(url => {
             console.log('url',url);
@@ -302,9 +303,9 @@ function updateAuthor(id) {
                             <td><button class="btn btn-danger" onclick="ShowConfirmDelete('${data._id}')">Delete</button>
                             <button class="btn btn-primary" onclick="showUpdateForm('${data._id}')">Update</button></td>
                             <td>`;
-                            $(`#${id}`).replaceWith(html);
+                    $(`#${id}`).replaceWith(html);
                 }
+            })
         })
-    })
 }
 
