@@ -115,7 +115,7 @@ function fetchData() {
 
 
 function showConfirmDelete(id){
-    console.log(id)
+   
     Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -167,7 +167,7 @@ function createBook() {
     let publisherId = $('#publisherList').val();
     let description = $('#description').val();
     let gerneId = $('#gerneList').val()
-    console.log(publisherId)
+    
     const firebaseConfig = {
         apiKey: "AIzaSyBz6nRBLoqrZw5YtBHovGnKbPB29H7KgcU",
         authDomain: "yoongee.firebaseapp.com",
@@ -180,7 +180,7 @@ function createBook() {
 
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-    console.log(firebase);
+
     const ref = firebase.storage().ref();
     const file = document.querySelector("#image").files[0];
     const nameImage = +new Date() + "-" + file.name;
@@ -246,7 +246,7 @@ function drawGerneSelectOption() {
     $.ajax({
         type: 'GET', url: `${API_URL}/publishers`, success: function (data)
         {
-            console.log(data)
+          
             let html = '<option>Select gerne</option>' ;
             for (let publishers of data) {
                 html += `<option value="${publishers._id}">${publishers.name}</option>`
@@ -317,7 +317,7 @@ function updateBook(id) {
 
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-    console.log(firebase);
+    
     const ref = firebase.storage().ref();
     const file = document.querySelector("#image").files[0];
     const nameImage = +new Date() + "-" + file.name;

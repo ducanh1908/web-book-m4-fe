@@ -13,7 +13,7 @@ if (!token) {
 } else {
     $(document).ready(function() {
         getAuthorList();
-        getQuantity();
+       
     })
 
 }
