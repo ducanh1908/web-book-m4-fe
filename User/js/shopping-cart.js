@@ -88,6 +88,7 @@ function showListProductByCategory(cateId) {
       $("#productList").html(html);
     }})
 }
+
 function showOrderDetailCount() {
   $.ajax({
     type: "GET",

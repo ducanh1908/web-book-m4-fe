@@ -75,32 +75,28 @@ function fetchData() {
         Story.innerHTML +=
             `<div class="col-md-6 col-xl-3">
                                 <div class="card-box product-box">
-                                    
-                                    <div class="product-action">
-                                        <a href="javascript: void(0);" class="btn btn-success btn-xs waves-effect waves-light"><i class="mdi mdi-pencil"></i></a>
-                                        <a href="javascript: void(0);" class="btn btn-danger btn-xs waves-effect waves-light"><i class="mdi mdi-close"></i></a>
-                                    </div>
-
-                                    <div class="bg-light">
+                               
+                              <div class="row"  
+                              <div class="bg-light">
                                         <img src="${data.image}" alt="product-pic" class="img-fluid" />
                                     </div>
 
                                     <div class="product-info">
                                         <div class="row align-items-center">
                                             <div class="col">
-                                                <h5 class="font-16 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">Designer Awesome Chair</a> </h5>
+                                                <h5 class="font-16 mt-0 sp-line-1"><a href="ecommerce-product-detail.html" class="text-dark">${data.name}</a> </h5>
                                                 <div class="text-warning mb-2 font-13">
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
                                                 </div>
-                                                <h5 class="m-0"> <span class="text-muted"> Stocks : 385 pcs</span></h5>
+                                                <h5 class="m-0"> <span class="text-muted"> ${data.name}</span></h5>
                                             </div>
-                                            <div class="col-auto">
-                                                <div class="product-price-tag">
-                                                    $29
+                                            <div class="">
+                                                <div class="product-price-tag-xl">
+                                                    ${data.price}$
                                                 </div>
                                             </div>
                                         </div> <!-- end row -->
@@ -112,7 +108,3 @@ function fetchData() {
     })
     renderPagination();
 }
-
-
-
-

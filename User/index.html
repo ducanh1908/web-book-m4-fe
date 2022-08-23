@@ -195,23 +195,39 @@
 					<div class="new_arrivals_sorting">
 						<ul class="arrivals_grid_sorting clearfix button-group filters-button-group">
 							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked" data-filter="*">all</li>
-							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".women">psychology</li>
-							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".accessories">literary</li>
-							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".men">business</li>
+							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".psychology">psychology</li>
+							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".literary">literary</li>
+							<li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=".business">business</li>
 						</ul>
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row" >
 				<div class="col">
-					<div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
-
+					<div class="product-grid " id="books"  data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+						
 						<!-- Product 1 -->
-						<div class="col-md-6 col-xl-3" id="${book._id}">
+						<div class="col-md-6 col-xl-3 psychology" id="${book._id}">
 							<div class="product-item" style="width:100%">
 								<div class="product product_filter">
 									<div class="product_image">
 										<img src="/User/images/book-1.jpg" alt="">
+									</div>
+									<div class="favorite"></div>
+									<div class="product_info">
+										<h6 class="product_name"><a href="single.html"></a></h6>
+										<div class="product_price">$1000</div>
+									</div>
+								</div>
+								<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							</div>
+						</div>
+
+						<div class="col-md-6 col-xl-3 psychology" id="${book._id}">
+							<div class="product-item" style="width:100%">
+								<div class="product product_filter">
+									<div class="product_image">
+										<img src="/User/images/book-2.jpg" alt="">
 									</div>
 									<div class="favorite"></div>
 									<div class="product_info">
@@ -222,11 +238,11 @@
 								<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
 							</div>
 						</div>
-						<div class="col-md-6 col-xl-3" id="${book._id}">
+						<div class="col-md-6 col-xl-3 psychology" id="${book._id}">
 							<div class="product-item" style="width:100%">
 								<div class="product product_filter">
 									<div class="product_image">
-										<img src="/User/images/book-1.jpg" alt="">
+										<img src="/User/images/book-3.jpg" alt="">
 									</div>
 									<div class="favorite"></div>
 									<div class="product_info">
@@ -237,11 +253,11 @@
 								<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
 							</div>
 						</div>
-						<div class="col-md-6 col-xl-3" id="${book._id}">
+						<div class="col-md-6 col-xl-3 literary" id="${book._id}">
 							<div class="product-item" style="width:100%">
 								<div class="product product_filter">
 									<div class="product_image">
-										<img src="/User/images/book-1.jpg" alt="">
+										<img src="/User/images/book-4.jpg" alt="">
 									</div>
 									<div class="favorite"></div>
 									<div class="product_info">
@@ -252,11 +268,57 @@
 								<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
 							</div>
 						</div>
-						<div class="col-md-6 col-xl-3" id="${book._id}">
+						<div class="col-md-6 col-xl-3 literary" id="${book._id}">
 							<div class="product-item" style="width:100%">
 								<div class="product product_filter">
 									<div class="product_image">
-										<img src="/User/images/book-1.jpg" alt="">
+										<img src="/User/images/book-6.jpg" alt="">
+									</div>
+									<div class="favorite"></div>
+									<div class="product_info">
+										<h6 class="product_name"><a href="single.html">$abc</a></h6>
+										<div class="product_price">$1000</div>
+									</div>
+								</div>
+								<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							</div>
+						</div>
+						
+						<div class="col-md-6 col-xl-3 literary" id="${book._id}">
+							<div class="product-item" style="width:100%">
+								<div class="product product_filter">
+									<div class="product_image">
+										<img src="/User/images/book-7.jpg" alt="">
+									</div>
+									<div class="favorite"></div>
+									<div class="product_info">
+										<h6 class="product_name"><a href="single.html">$abc</a></h6>
+										<div class="product_price">$1000</div>
+									</div>
+								</div>
+								<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							</div>
+						</div>
+						<div class="col-md-6 col-xl-3 business" id="${book._id}">
+							<div class="product-item" style="width:100%">
+								<div class="product product_filter">
+									<div class="product_image">
+										<img src="/User/images/book-9.jpg" alt="">
+									</div>
+									<div class="favorite"></div>
+									<div class="product_info">
+										<h6 class="product_name"><a href="single.html">$abc</a></h6>
+										<div class="product_price">$1000</div>
+									</div>
+								</div>
+								<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							</div>
+						</div>
+						<div class="col-md-6 col-xl-3 business" id="${book._id}">
+							<div class="product-item" style="width:100%">
+								<div class="product product_filter">
+									<div class="product_image">
+										<img src="/User/images/book-10.jpg" alt="">
 									</div>
 									<div class="favorite"></div>
 									<div class="product_info">
@@ -1294,6 +1356,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
 <script src="js/custom.js"></script>
+<script src="/user-home.js"></script>
 </body>
 
 </html>
